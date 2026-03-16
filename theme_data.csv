@@ -1,0 +1,10 @@
+
+theme,color_r,color_g,color_b,style
+dragon,139,0,0,dark
+dragon_fire,255,69,0,fire
+dragon_shadow,90,0,90,dark
+dragon_night,75,0,130,dark
+lion,255,215,0,gold
+lion_royal,212,175,55,royal
+lion_gold,255,223,0,gold
+lion_sun,255,200,0,bright
