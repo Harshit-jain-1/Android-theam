@@ -1,7 +1,6 @@
-
 import streamlit as st
 
-st.set_page_config(page_title="Dragon Theme", layout="centered")
+st.set_page_config(page_title="Dragon Mobile Theme", layout="centered")
 
 # Load CSS
 with open("theme_data.css") as f:
