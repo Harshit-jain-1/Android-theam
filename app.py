@@ -1,112 +1,85 @@
 
 import streamlit as st
-import pandas as pd
-import io
 
-from sklearn.tree import DecisionTreeClassifier
-
-from dragon_lion_generator import generate_theme
-
-
-# ---------------------------
-# PAGE CONFIG
-# ---------------------------
-
+# Page configuration
 st.set_page_config(
-    page_title="Dragon Lion Theme Generator",
-    page_icon="🐉",
+    page_title="Dragon Mobile Theme",
     layout="centered"
 )
 
-st.title("🐉🦁 Dragon + Lion Mobile Theme Generator")
+# Load CSS
+with open("style.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+# Mobile UI
+st.markdown("""
+<div class="mobile">
 
-# ---------------------------
-# LOAD DATA
-# ---------------------------
+<div class="status-bar">
+<span>9:41</span>
+<span>DragonNet 🔋</span>
+</div>
 
-data = pd.read_csv("theme_data.csv")
+<div class="wallpaper">
 
-X = data[["color_r","color_g","color_b"]]
+<div class="clock">
+<h1>09:41</h1>
+<p>Dragon Realm</p>
+</div>
 
-y = data["theme"]
+<div class="apps">
 
+<div class="app">
+<img src="https://cdn-icons-png.flaticon.com/512/724/724664.png">
+<p>Phone</p>
+</div>
 
-# ---------------------------
-# TRAIN MODEL
-# ---------------------------
+<div class="app">
+<img src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
+<p>Messages</p>
+</div>
 
-model = DecisionTreeClassifier()
+<div class="app">
+<img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png">
+<p>Settings</p>
+</div>
 
-model.fit(X,y)
+<div class="app">
+<img src="https://cdn-icons-png.flaticon.com/512/747/747376.png">
+<p>Camera</p>
+</div>
 
+<div class="app">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+<p>Chrome</p>
+</div>
 
-# ---------------------------
-# USER INPUT
-# ---------------------------
+<div class="app">
+<img src="https://cdn-icons-png.flaticon.com/512/888/888879.png">
+<p>Gallery</p>
+</div>
 
-st.sidebar.header("Select Theme Colors")
+<div class="app">
+<img src="https://cdn-icons-png.flaticon.com/512/2920/2920244.png">
+<p>Music</p>
+</div>
 
-r = st.sidebar.slider("Red",0,255,150)
+<div class="app">
+<img src="https://cdn-icons-png.flaticon.com/512/1827/1827392.png">
+<p>Files</p>
+</div>
 
-g = st.sidebar.slider("Green",0,255,80)
+</div>
+</div>
 
-b = st.sidebar.slider("Blue",0,255,50)
+<div class="dock">
 
+<img src="https://cdn-icons-png.flaticon.com/512/724/724664.png">
+<img src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
+<img src="https://cdn-icons-png.flaticon.com/512/747/747376.png">
+<img src="https://cdn-icons-png.flaticon.com/512/888/888879.png">
 
-# ---------------------------
-# PREDICT THEME
-# ---------------------------
+</div>
 
-prediction = model.predict([[r,g,b]])
-
-theme = prediction[0]
-
-st.subheader("Predicted Theme")
-
-st.success(theme)
-
-
-# ---------------------------
-# GENERATE WALLPAPER
-# ---------------------------
-
-image = generate_theme(r,g,b)
-
-st.subheader("Wallpaper Preview")
-
-st.image(image,use_container_width=True)
-
-
-# ---------------------------
-# DOWNLOAD WALLPAPER
-# ---------------------------
-
-buffer = io.BytesIO()
-
-image.save(buffer,format="PNG")
-
-st.download_button(
-label="Download Wallpaper",
-data=buffer.getvalue(),
-file_name="dragon_lion_theme.png",
-mime="image/png"
-)
-
-
-# ---------------------------
-# THEME DESCRIPTION
-# ---------------------------
-
-st.subheader("Theme Description")
-
-if "dragon" in theme:
-    st.write("🔥 Powerful Dragon Dark Theme")
-
-elif "lion" in theme:
-    st.write("🦁 Royal Lion Golden Theme")
-
-
-st.write("---")
-
-st.caption("AI Mobile Theme Generator using Streamlit + Machine Learning")
+</div>
+""", unsafe_allow_html=True)
