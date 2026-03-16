@@ -1,19 +1,12 @@
 # app.py
-
 import streamlit as st
 import base64
 
-st.set_page_config(
-    page_title="Dragon Mobile Theme",
-    layout="wide",
-    initial_sidebar_state="collapsed"
-)
+st.set_page_config(page_title="Dragon Mobile Theme", layout="centered")
 
-# load css
 with open("theme_data.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-# convert video to base64
 def load_video(file):
     with open(file, "rb") as f:
         data = f.read()
@@ -22,14 +15,13 @@ def load_video(file):
 video = load_video("5b615f3f74e1a3369f184065fba10bbd.mp4")
 
 st.markdown(f"""
-<video autoplay muted loop class="video-bg">
+<div class="mobile">
+
+<div class="wallpaper">
+
+<video autoplay muted loop class="dragon-video">
 <source src="data:video/mp4;base64,{video}" type="video/mp4">
 </video>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-
-<div class="mobile">
 
 <div class="status-bar">
 <span>9:41</span>
@@ -85,13 +77,7 @@ st.markdown("""
 
 </div>
 
-<div class="dock">
-<img src="https://cdn-icons-png.flaticon.com/512/724/724664.png">
-<img src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
-<img src="https://cdn-icons-png.flaticon.com/512/747/747376.png">
-<img src="https://cdn-icons-png.flaticon.com/512/888/888879.png">
 </div>
 
 </div>
-
 """, unsafe_allow_html=True)
