@@ -4,27 +4,43 @@ from PIL import ImageDraw
 from PIL import ImageFont
 
 
-def generate_theme(r,g,b):
+def create_android_theme(r,g,b):
 
     width = 400
-    height = 700
+    height = 800
 
-    image = Image.new("RGB",(width,height),(r,g,b))
+    img = Image.new("RGB",(width,height),(r,g,b))
 
-    draw = ImageDraw.Draw(image)
+    draw = ImageDraw.Draw(img)
 
     try:
-        font1 = ImageFont.truetype("arial.ttf",50)
-        font2 = ImageFont.truetype("arial.ttf",40)
+        font_big = ImageFont.truetype("arial.ttf",45)
+        font_small = ImageFont.truetype("arial.ttf",20)
 
     except:
-        font1 = ImageFont.load_default()
-        font2 = ImageFont.load_default()
+        font_big = ImageFont.load_default()
+        font_small = ImageFont.load_default()
 
-    draw.text((80,200),"🐉 DRAGON",fill=(255,0,0),font=font1)
 
-    draw.text((170,320),"+",fill=(255,255,255),font=font1)
+    # CLOCK
+    draw.text((150,40),"12:45",fill=(255,255,255),font=font_big)
 
-    draw.text((100,450),"🦁 LION",fill=(255,215,0),font=font2)
+    # TITLE
+    draw.text((90,120),"🐉 DRAGON",fill=(255,0,0),font=font_big)
+    draw.text((110,200),"🦁 LION",fill=(255,215,0),font=font_big)
 
-    return image
+
+    # ICON ROW
+    draw.rectangle((40,620,90,670),fill=(0,0,0))
+    draw.rectangle((120,620,170,670),fill=(0,0,0))
+    draw.rectangle((200,620,250,670),fill=(0,0,0))
+    draw.rectangle((280,620,330,670),fill=(0,0,0))
+
+
+    # ICON LABELS
+    draw.text((40,690),"Phone",fill=(255,255,255),font=font_small)
+    draw.text((120,690),"Camera",fill=(255,255,255),font=font_small)
+    draw.text((205,690),"Chat",fill=(255,255,255),font=font_small)
+    draw.text((280,690),"Settings",fill=(255,255,255),font=font_small)
+
+    return img
