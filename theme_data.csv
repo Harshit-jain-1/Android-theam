@@ -1,10 +1,96 @@
 
-theme,color_r,color_g,color_b,style
-dragon,139,0,0,dark
-dragon_fire,255,69,0,fire
-dragon_shadow,90,0,90,dark
-dragon_night,75,0,130,dark
-lion,255,215,0,gold
-lion_royal,212,175,55,royal
-lion_gold,255,223,0,gold
-lion_sun,255,200,0,bright
+body{
+background:#111;
+display:flex;
+justify-content:center;
+}
+
+.mobile{
+width:350px;
+height:700px;
+border-radius:40px;
+overflow:hidden;
+border:8px solid black;
+box-shadow:0 0 40px red;
+}
+
+/* Status Bar */
+
+.status-bar{
+height:40px;
+background:black;
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 15px;
+font-size:14px;
+}
+
+/* Wallpaper */
+
+.wallpaper{
+height:600px;
+background-image:url("https://wallpaperaccess.com/full/317501.jpg");
+background-size:cover;
+background-position:center;
+padding-top:40px;
+}
+
+/* Clock */
+
+.clock{
+text-align:center;
+color:white;
+margin-bottom:30px;
+text-shadow:0 0 10px red;
+}
+
+.clock h1{
+font-size:60px;
+}
+
+/* Apps */
+
+.apps{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+padding:20px;
+}
+
+.app{
+text-align:center;
+color:white;
+font-size:12px;
+}
+
+.app img{
+width:50px;
+height:50px;
+background:rgba(0,0,0,0.4);
+border-radius:15px;
+padding:8px;
+box-shadow:0 0 10px red;
+transition:0.3s;
+}
+
+.app img:hover{
+transform:scale(1.2);
+box-shadow:0 0 20px orange;
+}
+
+/* Dock */
+
+.dock{
+height:60px;
+background:rgba(0,0,0,0.6);
+display:flex;
+justify-content:space-around;
+align-items:center;
+}
+
+.dock img{
+width:40px;
+height:40px;
+}
