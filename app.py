@@ -1,17 +1,12 @@
 
 import streamlit as st
 
-# Page configuration
-st.set_page_config(
-    page_title="Dragon Mobile Theme",
-    layout="centered"
-)
+st.set_page_config(page_title="Dragon Theme", layout="centered")
 
 # Load CSS
-with open("theme_data.css") as f:
+with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-# Mobile UI
 st.markdown("""
 <div class="mobile">
 
@@ -24,7 +19,7 @@ st.markdown("""
 
 <div class="clock">
 <h1>09:41</h1>
-<p>Dragon Realm</p>
+<p>Dragon Kingdom</p>
 </div>
 
 <div class="apps">
