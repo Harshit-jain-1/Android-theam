@@ -1,8 +1,11 @@
-# theme_data.css
+
 body{
+margin:0;
 background:black;
 font-family:Arial;
 }
+
+/* video background */
 
 .video-bg{
 position:fixed;
@@ -14,32 +17,61 @@ object-fit:cover;
 z-index:-1;
 }
 
+/* mobile frame */
+
 .mobile{
-width:350px;
+width:360px;
+height:720px;
 margin:auto;
-margin-top:40px;
-text-align:center;
+margin-top:20px;
+border-radius:40px;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(5px);
+box-shadow:0 0 40px red;
+overflow:hidden;
 }
 
-.clock{
+/* status bar */
+
+.status-bar{
+height:35px;
 color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 15px;
+font-size:12px;
+}
+
+/* clock */
+
+.clock{
+text-align:center;
+color:white;
+margin-top:40px;
 text-shadow:0 0 15px red;
 }
 
 .clock h1{
-font-size:60px;
+font-size:55px;
+margin:0;
 }
+
+/* apps grid */
 
 .apps{
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:20px;
-padding:20px;
+padding:30px 20px;
+text-align:center;
 }
+
+/* app icons */
 
 .app{
 color:white;
-font-size:12px;
+font-size:11px;
 }
 
 .app img{
@@ -49,5 +81,19 @@ padding:8px;
 border-radius:15px;
 background:#000;
 border:2px solid red;
-box-shadow:0 0 10px red;
+box-shadow:0 0 12px red;
+}
+
+/* dock */
+
+.dock{
+position:absolute;
+bottom:10px;
+width:100%;
+display:flex;
+justify-content:space-around;
+}
+
+.dock img{
+width:45px;
 }
