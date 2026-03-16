@@ -1,4 +1,3 @@
-
 body{
 background:black;
 display:flex;
@@ -26,14 +25,13 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:0 15px;
-font-size:14px;
 }
 
-/* Live Dragon Background */
+/* Live Dragon Background (GIF link) */
 
 .wallpaper{
 height:600px;
-background-image:url("https://media.giphy.com/media/l0HlNQ03J5JxX6lva/giphy.gif");
+background-image:url("https://pin.it/4Auq7KdS5");
 background-size:cover;
 background-position:center;
 padding-top:40px;
@@ -52,7 +50,7 @@ text-shadow:0 0 15px red;
 font-size:60px;
 }
 
-/* Apps Grid */
+/* Apps */
 
 .apps{
 display:grid;
@@ -60,8 +58,6 @@ grid-template-columns:repeat(4,1fr);
 gap:20px;
 padding:20px;
 }
-
-/* Dragon Icon Box */
 
 .app{
 text-align:center;
@@ -76,20 +72,7 @@ padding:8px;
 border-radius:15px;
 background:linear-gradient(145deg,#8b0000,#000000);
 border:2px solid red;
-box-shadow:
-0 0 10px red,
-0 0 20px orange;
-transition:0.3s;
-}
-
-/* Dragon Glow Hover */
-
-.app img:hover{
-transform:scale(1.2);
-box-shadow:
-0 0 20px red,
-0 0 40px orange,
-0 0 60px yellow;
+box-shadow:0 0 10px red;
 }
 
 /* Dock */
@@ -105,5 +88,4 @@ align-items:center;
 .dock img{
 width:40px;
 height:40px;
-filter:drop-shadow(0 0 10px red);
 }
