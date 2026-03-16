@@ -1,4 +1,5 @@
 import streamlit as st
+import base64
 
 st.set_page_config(page_title="Dragon Theme", layout="centered")
 
@@ -6,7 +7,12 @@ st.set_page_config(page_title="Dragon Theme", layout="centered")
 with open("theme_data.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-st.markdown("""
+# Read video and convert to base64
+video_file = open("5b615f3f74e1a3369f184065fba10bbd.mp4", "rb")
+video_bytes = video_file.read()
+video_base64 = base64.b64encode(video_bytes).decode()
+
+st.markdown(f"""
 <div class="mobile">
 
 <div class="status-bar">
@@ -17,7 +23,7 @@ st.markdown("""
 <div class="wallpaper">
 
 <video autoplay muted loop class="dragon-video">
-<source src="5b615f3f74e1a3369f184065fba10bbd.mp4" type="video/mp4">
+<source src="data:video/mp4;base64,{video_base64}" type="video/mp4">
 </video>
 
 <div class="clock">
@@ -37,7 +43,6 @@ st.markdown("""
 <div class="app"><img src="https://cdn-icons-png.flaticon.com/512/1827/1827392.png"><p>Files</p></div>
 
 </div>
-
 </div>
 
 <div class="dock">
