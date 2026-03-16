@@ -13,6 +13,7 @@ border-radius:40px;
 overflow:hidden;
 border:8px solid black;
 box-shadow:0 0 50px red;
+font-family:Arial;
 }
 
 /* Status Bar */
@@ -27,14 +28,24 @@ align-items:center;
 padding:0 15px;
 }
 
-/* Live Dragon Background (GIF link) */
+/* Wallpaper */
 
 .wallpaper{
+position:relative;
 height:600px;
-background-image:url("5b615f3f74e1a3369f184065fba10bbd.mp4");
-background-size:cover;
-background-position:center;
-padding-top:40px;
+overflow:hidden;
+}
+
+/* Dragon Video */
+
+.dragon-video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-1;
 }
 
 /* Clock */
@@ -42,7 +53,7 @@ padding-top:40px;
 .clock{
 text-align:center;
 color:white;
-margin-bottom:30px;
+margin-top:40px;
 text-shadow:0 0 15px red;
 }
 
