@@ -2,21 +2,19 @@
 import streamlit as st
 import base64
 
-st.set_page_config(page_title="Dragon Mobile Theme", layout="centered")
+st.set_page_config(page_title="Dragon Mobile", layout="centered")
 
 with open("theme_data.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-def load_video(file):
+def load_file(file):
     with open(file, "rb") as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
+        return base64.b64encode(f.read()).decode()
 
-video = load_video("5b615f3f74e1a3369f184065fba10bbd.mp4")
+video = load_file("5b615f3f74e1a3369f184065fba10bbd.mp4")
 
 st.markdown(f"""
 <div class="mobile">
-
 <div class="wallpaper">
 
 <video autoplay muted loop class="dragon-video">
@@ -34,50 +32,23 @@ st.markdown(f"""
 </div>
 
 <div class="apps">
-
-<div class="app">
-<img src="https://cdn-icons-png.flaticon.com/512/724/724664.png">
-<p>Phone</p>
+<div class="app"><video autoplay muted loop class="icon-video"><source src="data:video/mp4;base64,{video}"></video><p>Phone</p></div>
+<div class="app"><video autoplay muted loop class="icon-video"><source src="data:video/mp4;base64,{video}"></video><p>Messages</p></div>
+<div class="app"><video autoplay muted loop class="icon-video"><source src="data:video/mp4;base64,{video}"></video><p>Settings</p></div>
+<div class="app"><video autoplay muted loop class="icon-video"><source src="data:video/mp4;base64,{video}"></video><p>Camera</p></div>
+<div class="app"><video autoplay muted loop class="icon-video"><source src="data:video/mp4;base64,{video}"></video><p>Chrome</p></div>
+<div class="app"><video autoplay muted loop class="icon-video"><source src="data:video/mp4;base64,{video}"></video><p>Gallery</p></div>
+<div class="app"><video autoplay muted loop class="icon-video"><source src="data:video/mp4;base64,{video}"></video><p>Music</p></div>
+<div class="app"><video autoplay muted loop class="icon-video"><source src="data:video/mp4;base64,{video}"></video><p>Files</p></div>
 </div>
 
-<div class="app">
-<img src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
-<p>Messages</p>
-</div>
-
-<div class="app">
-<img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png">
-<p>Settings</p>
-</div>
-
-<div class="app">
-<img src="https://cdn-icons-png.flaticon.com/512/747/747376.png">
-<p>Camera</p>
-</div>
-
-<div class="app">
-<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
-<p>Chrome</p>
-</div>
-
-<div class="app">
-<img src="https://cdn-icons-png.flaticon.com/512/888/888879.png">
-<p>Gallery</p>
-</div>
-
-<div class="app">
-<img src="https://cdn-icons-png.flaticon.com/512/2920/2920244.png">
-<p>Music</p>
-</div>
-
-<div class="app">
-<img src="https://cdn-icons-png.flaticon.com/512/1827/1827392.png">
-<p>Files</p>
+<div class="dock">
+<video autoplay muted loop class="dock-video"><source src="data:video/mp4;base64,{video}"></video>
+<video autoplay muted loop class="dock-video"><source src="data:video/mp4;base64,{video}"></video>
+<video autoplay muted loop class="dock-video"><source src="data:video/mp4;base64,{video}"></video>
+<video autoplay muted loop class="dock-video"><source src="data:video/mp4;base64,{video}"></video>
 </div>
 
 </div>
-
-</div>
-
 </div>
 """, unsafe_allow_html=True)
